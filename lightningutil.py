@@ -27,6 +27,8 @@ variables = [
     'cldht',
     't_sfc',
     'cldfrac_conv_440',
+    'cldfrac_ls_440',
+    'l_cbase'
 ]
 
 
@@ -133,7 +135,7 @@ def case_study_plotting(ds_tmp,
         save_string=None (string): save filename and directory for figure. Defaults to None.
     """
     # figure creation
-    fig, axis = plt.subplots(1, 1, subplot_kw=dict(projection=ccrs.Mercator(-90, 30)))
+    fig, axis = plt.subplots(1, 1, subplot_kw=dict(projection=ccrs.Mercator()))
 
     # plotting
     ds = ds_tmp.sel(
