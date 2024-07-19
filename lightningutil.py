@@ -27,6 +27,14 @@ variables = [
     'cldht',
     't_sfc',
     'cldfrac_conv_440',
+    'cldfrac_ls_440',
+    'l_cbase',
+    'qicn_coldcore',
+    'cnv_qc_coldcore',
+    'qhoi_gf_coldcore',
+    'qils_coldcore',
+    'qlcn_coldcore',
+    'qlls_coldcore',
 ]
 
 
@@ -133,7 +141,7 @@ def case_study_plotting(ds_tmp,
         save_string=None (string): save filename and directory for figure. Defaults to None.
     """
     # figure creation
-    fig, axis = plt.subplots(1, 1, subplot_kw=dict(projection=ccrs.Mercator(-90, 30)))
+    fig, axis = plt.subplots(1, 1, subplot_kw=dict(projection=ccrs.Mercator()))
 
     # plotting
     ds = ds_tmp.sel(
@@ -215,7 +223,7 @@ def case_study_plotting(ds_tmp,
     axis.set_title(fig_title)
     
     if save_string is not None:
-        plt.savefig(fname=save_string, dpi=200)
+        plt.savefig(fname=save_string, dpi=200, bbox_inches='tight')
     
     plt.show()
     plt.close()
